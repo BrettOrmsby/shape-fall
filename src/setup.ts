@@ -8,33 +8,41 @@ import {
 } from "matter-js";
 import { WIDTH, HEIGHT, INTERACTABLE } from "./constants";
 
-export const engine = Engine.create();
-engine.timing.timeScale = 0.5;
+export let engine: Engine;
+export let render: Render;
+export let runner: Runner;
+export let mouse: Mouse;
+export let mouseConstraint: MouseConstraint;
 
-export const render = Render.create({
-  element: document.querySelector("#app") as HTMLElement,
-  engine: engine,
-  options: {
-    width: WIDTH,
-    height: HEIGHT,
-    background: "#eee",
-    wireframes: false,
-    showAngleIndicator: false,
-    showCollisions: false,
-    showVelocity: false,
-  },
-});
+export function initSetup(element: HTMLElement) {
+  engine = Engine.create();
+  engine.timing.timeScale = 0.5;
 
-Render.run(render);
-const runner = Runner.create();
-Runner.run(runner, engine);
+  render = Render.create({
+    element: element,
+    engine: engine,
+    options: {
+      width: WIDTH,
+      height: HEIGHT,
+      background: "#fdf0d5",
+      wireframes: false,
+      showAngleIndicator: false,
+      showCollisions: false,
+      showVelocity: false,
+    },
+  });
 
-export const mouse = Mouse.create(render.canvas);
-render.mouse = mouse;
+  Render.run(render);
+  runner = Runner.create();
+  Runner.run(runner, engine);
 
-export const mouseConstraint = MouseConstraint.create(engine, {
-  mouse: mouse,
-  constraint: { render: { visible: false } },
-  collisionFilter: { mask: INTERACTABLE },
-});
-Composite.add(engine.world, mouseConstraint);
+  mouse = Mouse.create(render.canvas);
+  render.mouse = mouse;
+
+  mouseConstraint = MouseConstraint.create(engine, {
+    mouse: mouse,
+    constraint: { render: { visible: false } },
+    collisionFilter: { mask: INTERACTABLE },
+  });
+  Composite.add(engine.world, mouseConstraint);
+}

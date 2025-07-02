@@ -5,7 +5,6 @@ import { SQUARE_SIZE, INTERACTABLE, STATIC } from "./constants";
 type BlockKind =
   | "bad"
   | "good"
-  | "stationary"
   | "ok"
   | "okStationary"
   | "badStationary"
@@ -14,42 +13,37 @@ type BlockKind =
 type Direction = "up" | "down" | "left" | "right";
 const blockSettings = {
   bad: {
-    colour: "red",
+    colour: "#E63946",
     isStatic: false,
     canTap: true,
   },
   badStationary: {
-    colour: "#ff5252",
+    colour: "#F2616D",
     isStatic: true,
     canTap: true,
   },
   badProtection: {
-    colour: "#911d1d",
+    colour: "#B61624",
     isStatic: false,
     canTap: false,
   },
   good: {
-    colour: "green",
+    colour: "#23B573",
     isStatic: false,
     canTap: false,
   },
   goodStationary: {
-    colour: "#8dd98d",
-    isStatic: true,
-    canTap: false,
-  },
-  stationary: {
-    colour: "gray",
+    colour: "#6FDAA8",
     isStatic: true,
     canTap: false,
   },
   ok: {
-    colour: "blue",
+    colour: "#1976d2",
     isStatic: false,
     canTap: true,
   },
   okStationary: {
-    colour: "#786ce6",
+    colour: "#64b5f6",
     isStatic: true,
     canTap: true,
   },

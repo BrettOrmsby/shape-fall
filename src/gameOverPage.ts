@@ -20,7 +20,7 @@ export function endGame(isWin: boolean) {
   const levelSelectButton = createButton(
     WIDTH / 2 - (hasNextButton ? 50 : 25),
     HEIGHT / 2,
-    "blue"
+    "#1976d2"
   );
   levelSelectButton.plugin.onclick = goToLevels;
   levelSelectButton.plugin.draw = (ctx: CanvasRenderingContext2D) => {
@@ -45,7 +45,7 @@ export function endGame(isWin: boolean) {
   const restartButton = createButton(
     WIDTH / 2 + (hasNextButton ? 0 : 25),
     HEIGHT / 2,
-    "red"
+    "#E63946"
   );
   restartButton.plugin.onclick = () => loadLevel(store.currentLevel);
   restartButton.plugin.draw = (ctx: CanvasRenderingContext2D) => {
@@ -62,7 +62,7 @@ export function endGame(isWin: boolean) {
     ctx.stroke(path2);
   };
 
-  const nextLevelButton = createButton(WIDTH / 2 + 50, HEIGHT / 2, "green");
+  const nextLevelButton = createButton(WIDTH / 2 + 50, HEIGHT / 2, "#23B573");
   nextLevelButton.plugin.onclick = () => {
     loadLevel(store.currentLevel + 1);
   };

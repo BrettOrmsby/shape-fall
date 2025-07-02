@@ -27,10 +27,10 @@ export function goToLevels() {
       let colour = "gray";
       if (levelNumber - 1 === store.unlockedLevels) {
         // current level
-        colour = "blue";
+        colour = "#1976d2";
       } else if (levelNumber - 1 < store.unlockedLevels) {
         // beat levels
-        colour = "green";
+        colour = "#23B573";
       }
       const x = xOffset + SQUARE_SIZE * j + space * (j + 1) + SQUARE_SIZE / 2;
       const y = yOffset + SQUARE_SIZE * i + space * (i + 1) + SQUARE_SIZE / 2;

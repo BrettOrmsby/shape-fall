@@ -1,12 +1,23 @@
 {
-  "name": "remove-colour",
-  "private": true,
+  "name": "shape-fall",
   "version": "0.0.0",
+  "description": "A physics puzzle game for the canvas.",
+  "main": "dist/index.es.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build && tsc"
   },
   "devDependencies": {
     "typescript": "~5.8.3",
@@ -15,5 +26,13 @@
   "dependencies": {
     "@types/matter-js": "^0.19.8",
     "matter-js": "^0.20.0"
-  }
+  },
+  "keywords": [
+    "physics",
+    "game",
+    "puzzle",
+    "canvas"
+  ],
+  "author": "Brett Ormsby",
+  "license": "MIT"
 }
