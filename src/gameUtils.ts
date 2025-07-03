@@ -131,6 +131,10 @@ export function loadLevel(index: number) {
   store.state = "game";
   settledFrameCount = 0;
   store.currentLevel = index;
+  if (store.currentLevel >= store.unlockedLevels) {
+    store.unlockedLevels = store.currentLevel;
+  }
+
   Composite.clear(engine.world, false);
   Composite.add(engine.world, mouseConstraint);
   const { blocks, help, title } = levels[index]();

@@ -8,8 +8,8 @@ import { levels } from "./levels";
 import { createButton } from "./utils";
 
 export function endGame(isWin: boolean) {
-  if (isWin && store.currentLevel === store.unlockedLevels) {
-    store.unlockedLevels += 1;
+  if (isWin && store.currentLevel >= store.unlockedLevels) {
+    store.unlockedLevels = store.currentLevel + 1;
   }
   store.state = isWin ? "win" : "lose";
   Composite.clear(engine.world, false);
